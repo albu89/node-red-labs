@@ -47,16 +47,22 @@ The nodes required to build this flow are:
 
  - And a final  ![`template`](/introduction_to_node_red/images/node_red_template.png) node linked to the ![`HTTPResponse`](/introduction_to_node_red/images/node_red_httpresponse.png) output node. The template will format the output returned from the Visual Recognition node into an HTML table for easier reading:
 ```HTML
-    <h1>Node-RED Watson Visual Recognition output</h1>
-    <p>Analyzed image: {{payload}}<br/><img src="{{payload}}" height='100'/></p>
+<h1>Visual Recognition v3 Image Analysis</h1>
+    <p>Analyzed image: {{result.images.0.resolved_url}}<br/><img id="image" src="{{result.images.0.resolved_url}}" height="200"/></p>
+    {{^result}}
+        <P>No Face detected</P>
+    {{/result}}
+    <p>Images Processed: {{result.images_processed}}</p>
     <table border='1'>
-        <thead><tr><th>Name</th><th>Score</th></tr></thead>
-        {{#labels}}
-          <tr><td><b>{{label_name}}</b></td><td><i>{{label_score}}</i></td></tr>
-        {{/labels}}
+        <thead><tr><th>Age Range</th><th>Confidence</th><th>Gender</th><th>Confidence</th><th>Name</th></tr></thead>
+        {{#result.images.0.faces}}<tr>
+            <td><b>{{age.min}} - {{age.max}}</b></td><td><i>{{age.score}}</i></td>
+            <td>{{gender.gender}}</td><td>{{gender.score}}</td>
+            <td>{{identity.name}} ({{identity.score}})</td>
+        </tr>{{/result.images.0.faces}}
     </table>
     <form  action="{{req._parsedUrl.pathname}}">
-        <input type="submit" value="Try again"/>
+        <br><input type="submit" value="Try again or go back to the home page"/>
     </form>
 ```
 ![Reco-Lab-TemplateReport-Node-Props](images/reco_lab_templatereport_node_props.png)  
