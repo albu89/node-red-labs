@@ -72,7 +72,7 @@ To run the web page, point your browser to  `/http://xxxx.mybluemix.net/reco` an
 The URL of the pre-selected images can be copied to clipboard and pasted into the text field.
 
 The Watson Visual Recognition API will return an array with the recognized features, which will be formatted in a HTML table by the template:
-![Visual RecognitionScreenshot ](images/reco_lab_visual_recognition_screenshot.png)
+
 
 ### Flow source
 The complete flow is available at [Reco-Lab-WebPage](reco_lab_web_page.json).
