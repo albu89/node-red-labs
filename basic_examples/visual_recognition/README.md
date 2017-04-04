@@ -28,10 +28,8 @@ The nodes required to build this flow are:
     <h1>Welcome to the Watson Visual Recognition Demo on Node-RED</h1>
     <h2>Select an image URL</h2>
     <form  action="{{req._parsedUrl.pathname}}">
-        <img src="http://visual-recognition-demo.mybluemix.net/images/horses.jpg" height='100'/>
-        <img src="http://visual-recognition-demo.mybluemix.net/images/73388.jpg" height='100'/>
-        <img src="http://visual-recognition-demo.mybluemix.net/images/26537.jpg" height='100'/>
-        <img src="http://visual-recognition-demo.mybluemix.net/images/4068.jpg" height='100'/>
+        <img src="http://img.usmagazine.com/article-leads-vertical-300/1250531162_britney_spears_290x402.jpg" height='100'/>
+        <img src="http://www.atpworldtour.com/~/media/tennis/players/head-shot/vibrant/federer-headshot15.png" height='100'/>
         <br/>Copy above image location URL or enter any image URL:<br/>
         <input type="text" name="imageurl"/>
         <input type="submit" value="Analyze"/>
